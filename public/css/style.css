@@ -55,6 +55,9 @@
     color: white;
     margin-top: 5%;
 }
+#heroPicture{
+    background-color: rgb(238, 255, 253);
+}
 
 /* end signup */
 
@@ -75,6 +78,9 @@
     display: flex;
     justify-content: center;
     margin-left: 15%;
+}
+#heroText{
+   margin-top: 40%;
 }
 
 /* end index */
@@ -123,7 +129,15 @@
 
 /* end feed */
 
-/*  */
+/* CHART */
+#chart {
+    border-top: none;
+    flex-grow: 1;
+    height: 700px;
+    width: 700px;
+    margin: 5%;
+    background-color: #21313c;
+  }
 /*  */
 
 /*  */

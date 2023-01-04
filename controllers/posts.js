@@ -19,6 +19,16 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },  
+  getIncome: async (req, res) => {
+    try {
+
+      res.render("incomeInput.ejs", {
+      
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
   getFeed: async (req, res) => {
     try {
@@ -49,22 +59,15 @@ module.exports = {
     }
   },
   createPost: async (req, res) => {
+    console.log(req.body);
     try {
       await Post.create({
-        name: req.body.name,
-        order: req.body.monster,
-        custom: req.body.custom
-
-        // mothman: req.body.mothman,
-        // kraken: req.body.kraken,
-        // cuthulu: req.body.cuthulu,
-        // jack: req.body.jack,
-        // trick: req.body.trick,
-        // witch: req.body.witch,
-        // camp: req.body.camp,
-        // cider: req.body.cider,
-        // vanilla: req.body.vanilla,
-
+        category: req.body.category,
+        title: req.body.title,
+        cost: req.body.cost,
+        incomeMonth: req.body.incomeMonth,
+        expenseMonth: req.body.expenseMonth,
+        total: req.body.total,
       });
       console.log("Post has been added!");
       res.redirect("/profile");
@@ -72,6 +75,7 @@ module.exports = {
       console.log(err);
     }
   },
+  // Line 51-67...This will create and save documents based on post schema, this will be sent to Mongo DB Atlas... - Abdullahi Ali
   complete: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
