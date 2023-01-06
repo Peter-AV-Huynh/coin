@@ -1,6 +1,6 @@
 
 //Charts render in profile.ejs
-
+// changes 
 
 //connects to MongoDB Charts SDK via link in html/ejs
 const ChartsEmbedSDK = window.ChartsEmbedSDK;
@@ -24,9 +24,9 @@ async function renderChart() {
       .render(document.getElementById('chart'))
 
     //refreshes page 
-      window.onload=function(){
-        document.getElementById('refresh').addEventListener('click', () => chart.refresh());
-      }
+      // window.onload=function(){
+      //   document.getElementById('refresh').addEventListener('click', () => chart.refresh());
+      // }
       
       let element = document.querySelector(".body-content")
   
@@ -48,3 +48,40 @@ async function renderChart() {
   
   
   renderChart().catch((e) => window.alert(e.message));
+
+
+
+
+
+  // ------------------JM: INCOME TABLE (edit&delete)----------------------
+  function editEvent(_id) {
+    let incomeEdit = document.querySelector('.updateIncome').value
+    fetch('/incomes/edit', {
+      method: 'put',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        '_id': _id,
+        'eventtitle': eventtitle,
+      })
+    })
+      .then(response => {
+        if (response.ok) return response.json()
+      })
+      .then(data => {
+        console.log(data)
+        window.location.href = `/incomes/${_id}`
+      })
+  }
+  function deleteEvent(_id) {
+    fetch('/incomes/deleteincomes', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        '_id': _id
+      })
+    }).then(function (response) {
+      window.location.href = '/gallery'
+    })
+  }

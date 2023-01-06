@@ -10,7 +10,7 @@ module.exports = {
       //this is looking for all the orders marked as done
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       const order = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", {
+      res.render("dashboard.ejs", {
         posts: posts,
         order: order,
         pending: pending,
@@ -19,11 +19,11 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  },  
-  getIncome: async (req, res) => {
+  }, 
+  getDashboard: async (req, res) => {
     try {
 
-      res.render("incomeInput.ejs", {
+      res.render("dashboard.ejs", {
       
       });
     } catch (err) {
@@ -61,16 +61,17 @@ module.exports = {
   createPost: async (req, res) => {
     console.log(req.body);
     try {
+      //Use post schema in models to create and save a document to Mongo DB Atlas
       await Post.create({
         category: req.body.category,
         title: req.body.title,
-        cost: req.body.cost,
+        cost: req.body.expenseCost,
         incomeMonth: req.body.incomeMonth,
         expenseMonth: req.body.expenseMonth,
         total: req.body.total,
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/dashboard");
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +87,7 @@ module.exports = {
         }
       );
       console.log('order marked as pending');
-      res.redirect(`/profile`);
+      res.redirect(`/dashboard`);
     } catch (err) {
       console.log(err);
     }
@@ -96,9 +97,9 @@ module.exports = {
       // Delete post from db
       await Post.remove({ _id: req.params.id });
       console.log("Deleted Post");
-      res.redirect("/profile");
+      res.redirect("/dashboard");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/dashboard");
     }
   },
 };

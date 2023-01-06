@@ -28,7 +28,7 @@
 
 /* login */
 #login {
-    background-image: url(./loginsignup.jpg);
+    /* background-image: url(./loginsignup.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -44,7 +44,7 @@
 
 /* signup */
 #signup {
-    background-image: url(./loginsignup.jpg);
+    /* background-image: url(./loginsignup.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -55,14 +55,11 @@
     color: white;
     margin-top: 5%;
 }
-#heroPicture{
-    background-color: rgb(238, 255, 253);
-}
 
 /* end signup */
 
 /* index */
-#index {
+/* #index {
     background-image: url(./index.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -78,10 +75,29 @@
     display: flex;
     justify-content: center;
     margin-left: 15%;
+} */
+#indexBody{
+    background-color: rgb(14, 80, 230);
 }
 #heroText{
    margin-top: 40%;
+   background-color: rgb(238, 255, 253);
 }
+#heroPicture{
+    background-color: rgb(238, 255, 253);
+}
+#topBlock{
+    background-color: rgb(238, 255, 253);
+}
+#middleBlock{
+    background-color: rgb(14, 80, 230);
+    color: whitesmoke;
+}
+#bottomBlock{
+    background-color: rgb(165, 243, 255);
+    color: whitesmoke;
+}
+
 
 /* end index */
 
@@ -109,7 +125,7 @@
 
 /* feed */
 #feed {
-    background-image: url(./index.jpg);
+    /* background-image: url(./index.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -138,7 +154,7 @@
     margin: 5%;
     background-color: #21313c;
   }
-/*  */
+/* changes */
 
 /*  */
 /*  */
